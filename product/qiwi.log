@@ -1,0 +1,133 @@
+>>>>>>> ROLLBACK <<<<<<<<<<
+drop table product_stock cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop sequence prs_id_seq
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist 
+
+
+
+Table dropped.
+
+
+Sequence dropped.
+
+drop table sale_item_aud cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop sequence sia_id_seq
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist 
+
+
+drop table sale_item cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop sequence stm_id_seq
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist 
+
+
+drop table sale cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+drop sequence sale_id_seq
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist 
+
+
+>>>>>>> PRODUCT <<<<<<<<<<
+
+Table created.
+
+
+Table altered.
+
+
+Sequence created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+>>>>>>> PRODUCT_PACK_SPEC <<<<<<<<<<
+
+Package created.
+
+>>>>>>> PRODUCT_PACK_BODY <<<<<<<<<<
+
+Package created.
+
+
+Package body created.
+
+>>>>>>> TEST_PRODUCT_PACK_SPEC <<<<<<<<<<
+
+Package created.
+
+>>>>>>> TEST_PRODUCT_PACK_BODY <<<<<<<<<<
+
+Package body created.
+
+>>>>>>> TRIGGERS <<<<<<<<<<
+
+Trigger created.
+
+>>>>>>> TESTS <<<<<<<<<<
+
+COLUMN_VALUE                                                                    
+--------------------------------------------------------------------------------
+product                                                                         
+  Test product_pack                                                             
+    ???????????????? ???????????????? ?? ?????????????????? ????????????????????
+?? API [.014 sec]                                                               
+                                                                                
+    ???????????????? ???????????????? [.007 sec]                                
+    ???????????????? ?????????????????????????????? ???????????????? ???? ??????
+?????????? ?? ???????????? [.003 sec]                                           
+                                                                                
+    ?????????????????? ???????????????? ???? ?????????? API ???????????? ???????
+??????????????? ?? ?????????????? [.004 sec]                                    
+
+COLUMN_VALUE                                                                    
+--------------------------------------------------------------------------------
+                                                                                
+                                                                                
+Finished in .032184 seconds                                                     
+4 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)                          
+                                                                                
+
+10 rows selected.
+
+
+no rows selected
+
+SQL> exit
