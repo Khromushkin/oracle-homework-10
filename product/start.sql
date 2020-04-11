@@ -14,7 +14,20 @@ prompt >>>>>>> ROLLBACK <<<<<<<<<<
 
 prompt >>>>>>> PRODUCT <<<<<<<<<<
 @@product.tbl.sql
-prompt >>>>>>> PRODUCT_PACK <<<<<<<<<<
-@@product_pack.pkg.sql
+prompt >>>>>>> PRODUCT_PACK_SPEC <<<<<<<<<<
+@@product_pack.spc.sql
+prompt >>>>>>> PRODUCT_PACK_BODY <<<<<<<<<<
+@@product_pack.bdy.sql
+prompt >>>>>>> TEST_PRODUCT_PACK_SPEC <<<<<<<<<<
+@@test_product_pack.spc.sql
+prompt >>>>>>> TEST_PRODUCT_PACK_BODY <<<<<<<<<<
+@@test_product_pack.bdy.sql
 prompt >>>>>>> TRIGGERS <<<<<<<<<<
 @@triggers.sql
+
+prompt >>>>>>> TESTS <<<<<<<<<<
+select *
+  from table(ut.run('admin.test_product_pack'));
+
+select * from product;
+

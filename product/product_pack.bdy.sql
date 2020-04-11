@@ -45,6 +45,8 @@ create or replace package body product_pack is
          prd_status)
         values (prd_id_seq.nextval, pi_product.prd_name, pi_product.prd_cost, 1) returning prd_id into v_prd_id;
 
+        g_is_api := false;
+
         return v_prd_id;
     exception
         when others then
@@ -66,6 +68,8 @@ create or replace package body product_pack is
         into v_product
         from product
         where prd_id = pi_prd_id and prd_status = 1;
+
+        g_is_api := false;
 
         return v_product;
     end;
@@ -91,6 +95,8 @@ create or replace package body product_pack is
             prd_status
             into v_product;
 
+        g_is_api := false;
+
         return v_product;
     exception
         when others then
@@ -112,6 +118,8 @@ create or replace package body product_pack is
         set prd_status = 0
         where prd_id = pi_prd_id;
 
+        g_is_api := false;
+
     exception
         when others then
             rollback to before_create_product;
@@ -124,7 +132,8 @@ create or replace package body product_pack is
     procedure
         product_tr_body_restrict is
     begin
-        if g_is_api then
+        if g_is_api or
+        nvl(sys_context('clientcontext', 'force_dml'), 'false') = 'true' then
             return;
         else
             raise_application_error(-20101, 'Use API, Luke');
