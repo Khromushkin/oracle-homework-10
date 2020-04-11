@@ -6,7 +6,6 @@ create or replace package body test_product_pack is
     --****************** процедура create_product
 
     procedure create_product_with_valid_params is
-        pragma autonomous_transaction;
         v_product_record product_pack.t_product_record := product_pack.t_product_record('name', 10.2);
         v_product_row    product%rowtype;
         v_prd_id         product.prd_id%type;
@@ -22,14 +21,11 @@ create or replace package body test_product_pack is
         ut.expect(v_product_row.prd_name).to_equal(v_product_record.prd_name);
         ut.expect(v_product_row.prd_cost).to_equal(v_product_record.prd_cost);
         ut.expect(v_product_row.prd_status).to_equal(1);
-
-        rollback;
     end;
 
     --****************** процедура delete_product
 
     procedure delete_existent_product is
-        pragma autonomous_transaction;
         v_status number;
         v_prd_id product.prd_id%type;
     begin
@@ -43,8 +39,6 @@ create or replace package body test_product_pack is
         where t.prd_id = v_prd_id;
 
         ut.expect(v_status).to_equal(0);
-
-        rollback;
     end;
 
 
